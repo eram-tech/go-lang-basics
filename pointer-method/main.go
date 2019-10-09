@@ -18,8 +18,21 @@ func (v *Vertex) Scale(f float64) {
 	v.Y = v.Y * f
 }
 
+//without method
+func Abs(v Vertex) float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func Scale(v *Vertex, f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+
 func main() {
 	v := Vertex{3, 4}
 	v.Scale(10)
 	fmt.Println(v.Abs())
+	//
+	Scale(&v, 10)
+	fmt.Println(Abs(v))
 }
